@@ -28,7 +28,7 @@ public class DogService {
 
 	public DogDTO find(String name) {
 		Optional<Dog> dog = repository.findByName(name); // not unique and crashes
-		
+//		Optional<Dog> dog = repository.findById(id);
 		return (dog.isPresent()) ? mapper.toDTO(dog.get()) : null;
 	}
 
@@ -37,7 +37,6 @@ public class DogService {
 	}
 
 	public DogDTO update(DogDTO dog_change) {
-		System.out.println(dog_change);
 		Optional<Dog> dog = repository.findById(dog_change.getDogId());
 		if (dog.isPresent()) {
 			Dog meta_dog = dog.get();

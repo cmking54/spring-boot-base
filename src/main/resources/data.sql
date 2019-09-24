@@ -1,7 +1,7 @@
 INSERT INTO dog( name, breed, size )
 VALUES
 ( 'lady', 'husky', 'MD'),
-( 'koby', 'golden doodle', 'LG');
+( 'kobe', 'golden doodle', 'LG');
 
 INSERT INTO keeper
 ( name, dog_id)

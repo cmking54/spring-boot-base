@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,20 +12,36 @@
 			<!--<h2 th:text="${message}">No Message Today</h2>-->
 		</div>
 		<div class="container">
-			<table class="table table-striped table-hover">
-				<thead>
-					<th scope="col">#</th>
-					<th scope="col">Name</th>
-					<th scope="col">Breed</th>
-					<th scope="col">Size</th>
-				</thead>
-				<tbody th:each="dog: ${kennel}">
-					<th scope="row" th:text="${dog.dogId}">#</th>
-					<td th:text="${dog.name}">#</td>
-					<td th:text="${dog.breed}">#</td>
-					<td th:text="${dog.size}">#</td>
-				</tbody>
-			</table>
+			<div class="row">
+				<div class="col-md-3">
+					<form th:object="${dog}" method="post">
+						<table class="table table-striped table-hover">
+							<thead>
+								<th scope="col">#</th>
+								<th scope="col">Name</th>
+								<th scope="col">Breed</th>
+								<th scope="col">Size</th>
+								<th scope="col">Delete</th>
+							</thead>
+							<tbody th:each="dog: ${kennel}" >
+								<th scope="row" th:text="${dog.dogId}">#</th>
+								<td th:text="${dog.name}">#</td>
+								<td th:text="${dog.breed}">#</td>
+								<td th:text="${dog.size}">#</td>
+								<td><a th:href="|dogs/passed/${dog.dogId}|" class="btn btn-danger" role="button">X</a></td>
+							</tbody>
+							<tbody>
+								<th scope="row">New pupper?</th>
+								<td><input type="text" th:field="*{name}"/>
+								<input type="submit" style="display:none" /></td>
+								<td><input type="text" th:field="*{breed}"/></td>
+								<td><input type="text" th:field="*{size}"/></td>
+								<td></td>
+							</tbody>
+						</table>
+					</form>
+				</div>
+			</div>
 		</div>
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

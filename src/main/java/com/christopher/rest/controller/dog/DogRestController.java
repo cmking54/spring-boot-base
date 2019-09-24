@@ -52,7 +52,7 @@ public class DogRestController {
 		return ResponseEntity.ok().body(result);
 	}
 	
-	@DeleteMapping("/dogs/{moved_on_dog}")
+	@DeleteMapping("/dogs/passed/{moved_on_dog}")
 	public ResponseEntity<Void> delete(@PathVariable String moved_on_dog) {
 		service.delete(Long.valueOf(moved_on_dog));
 		return ResponseEntity.ok().build(); // ? => builder

@@ -38,4 +38,9 @@ public class Dog {
 	public void setSize(String size) {
 		this.size = size;
 	}
+
+	@Override
+	public String toString() {
+		return "Dog [dogId=" + dogId + ", name=" + name + ", breed=" + breed + ", size=" + size + "]";
+	}
 }
